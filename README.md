@@ -46,63 +46,137 @@ Crypto Coin App (folder)
   - semantic-elements
    ~~~html
       <center>
-          <h1 class="heading">
-            Crypto Coin App</h1>
+          <h1 class="heading">Crypto Coin App</h1>
       </center>
    ~~~
    ~~~html
-   <small>Coded by <span>❤</span>FullStack Team</a>
-      </small>
+     <small>Coded by <span>❤</span>FullStack Team</a></small>
    ~~~
    ~~~html
-   <figure>
-                <img class="coin-icon" src=${iconUrl}>                
-                <figcaption style='color:${change < 0 ? "red" : "green"}'>
-                    <span><i class="fa-solid fa-chart-line"></i></span>
-                    <span>${change}%</span>
-                </figcaption>
-            </figure>
+     <figure>
+       <img class="coin-icon" src=${iconUrl}>                
+       <figcaption style='color:${change < 0 ? "red" : "green"}'>
+         <span><i class="fa-solid fa-chart-line"></i></span>
+         <span>${change}%</span>
+      </figcaption>
+    </figure>
    ~~~
 - CSS
- - !importat
-     ~~~css
-         li{
-            padding: 10px !important ;
-           }
-     ~~~
+  -grid
+  - z-index
+  - position [^p]
+    [^p]:div'in sag üst kösesine carpi butonu koymak icin
+   ~~~css
+        .top-banner form {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+    
+       .remove-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+   ~~~
+ 
   
   - JS
-     - window.addEventListener()
+    -  EncryptStringAES
+    -  DecryptStringAES
        ```
-       window.addEventListener("load", () => {
-              getData();
-          });
+       <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Crypto Coin App</title>         
+          <script src="js/aes.js"></script>
+          <script src="js/Extentions-custom-main.js"></script>
+          
+        </head>
+       
+       //js/Extentions-custom-main.js
+       function EncryptStringAES(text) {
+            if (text != null) {
+                var key = CryptoJS.enc.Utf8.parse("8080808080808080");
+                var iv = CryptoJS.enc.Utf8.parse("8080808080808080");
+
+              var encryptedstr = CryptoJS.AES.encrypt(
+                  CryptoJS.enc.Utf8.parse(text),
+                  key,
+                  {
+                keySize: 128,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7,
+            }
+        );
+        return encryptedstr;
+          } else {
+              return "";
+          }
+        }
+
+        function DecryptStringAES(text) {
+            if (text != null) {
+                var key = CryptoJS.enc.Utf8.parse("8080808080808080");
+                var iv = CryptoJS.enc.Utf8.parse("8080808080808080");
+
+        const crypted = CryptoJS.enc.Base64.parse(text);
+
+        var decryptedstr = CryptoJS.AES.decrypt({ ciphertext: crypted }, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7,
+        });
+        return decryptedstr.toString(CryptoJS.enc.Utf8);
+            } else {
+            }
+        }
        ```
+       
+   
+
+
+
+
         
+       - aaxios
+          ```
+             //index.html
+            <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Crypto Coin App</title>
+              
+              <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+          </head>
+
+           //crypto.js
+           const response = await axios(url, options);
+          
+         ```
+       - template literal(2015 ES-6 ile gelmistir ` ${...} `
+          ```
+          const url = `https://api.coinranking.com/v2/coins?search=${input.value}&limit=1`;
+
+          ```
+       - style class ekleme
+       ```
+       <figcaption style='color:${change < 0 ? "red" : "green"}'>
+       ```
+     
+       - 
+       - prepend() :son ekleneni basa yazdirir
+         ```
+         coinList.prepend(createdLi);
+
+         ```
        - async-await
-           ```
-           let ülkeler; //?datayi globale cekmek icin
-
-          const getData = async () => {
-              try {
-                  const URL = "https://restcountries.com/v3.1/all";
-                  const res = await fetch(URL);
-                  if (!res.ok) {
-                      throw new Error();
-                  }
-                  const data = await res.json();
-                  ülkeler = data; //?datayi countries e aktararak  globale cektim
-                  // console.log(ülkeler);
-                  nameSelect(data);
-
-                          // console.log(data);
-                      } catch (error) {
-                          // console.log(error);
-                          renderError(error);
-                      }
-                  };
-           ```
-      
   
     - DOM Manipulations
       - innerHTML
@@ -110,6 +184,7 @@ Crypto Coin App (folder)
     - DOM Selectors
     
     - Events
+        - submit
         - click
         - load
  
