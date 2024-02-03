@@ -5,7 +5,7 @@
 
 ![crypto coin](https://github.com/kaplanh/Crypto-Coin-App/assets/101884444/e9fa0e15-7ddd-45c1-a21d-f298e804d49b)
 
-[Live link!]()
+[Live link!](https://kaplanh.github.io/Crypto-Coin-App/)
 
 
  **What's used in this app ?** | **How to run ?** | **Author** |
