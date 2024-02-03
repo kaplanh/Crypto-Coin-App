@@ -84,9 +84,9 @@ Crypto Coin App (folder)
    ~~~
  
   
-  - JS
-    -  EncryptStringAES
-    -  DecryptStringAES
+- js
+   -  EncryptStringAES
+   -  DecryptStringAES
        ```
        <head>
           <meta charset="UTF-8">
@@ -137,15 +137,9 @@ Crypto Coin App (folder)
             }
         }
        ```
-       
-   
+   -  Axios
 
-
-
-
-        
-       - aaxios
-          ```
+      ```
              //index.html
             <head>
               <meta charset="UTF-8">
@@ -160,129 +154,44 @@ Crypto Coin App (folder)
            const response = await axios(url, options);
           
          ```
-       - template literal(2015 ES-6 ile gelmistir ` ${...} `
-          ```
-          const url = `https://api.coinranking.com/v2/coins?search=${input.value}&limit=1`;
+   -  template literal(2015 ES-6 ile gelmistir ` ${...} `
+     
+     ```
+           const url = `https://api.coinranking.com/v2/coins?search=${input.value}&limit=1`;
 
-          ```
-       - style class ekleme
+     ```
+   -   style class ekleme
        ```
        <figcaption style='color:${change < 0 ? "red" : "green"}'>
        ```
      
-       - 
-       - prepend() :son ekleneni basa yazdirir
+   -  prepend() :son ekleneni basa yazdirir
          ```
          coinList.prepend(createdLi);
 
          ```
-       - async-await
-  
-    - DOM Manipulations
-      - innerHTML
+   - async-await
      
-    - DOM Selectors
-    
-    - Events
-        - submit
-        - click
-        - load
+   - DOM Manipulations
+     - innerHTML
+     
+  - DOM Selectors
+  - Events
+    - submit
+    - click
+    -  load
  
- 
-  
-    - String  Methods
-      - sort()
-          ```
-              const nameSelect = (data) => {
-              ülkeler.forEach((element) => {
-                  // console.log(element);
-                  ülkeler = data; //?datayi countries e aktararak  globale cektim
-                  ülkeler.sort((a, b) => {
-                      const nameA = a.name.common.toUpperCase();
-                      const nameB = b.name.common.toUpperCase();
-                      if (nameA < nameB) {
-                          return -1;
-                      }
-                      if (nameA > nameB) {
-                          return 1;
-                      }
-                      return 0;
-                  });
-
-        // ! Yukarda ulkeleri siralayarak çalıştırılıyoruz
-        select.innerHTML += `<option value=${element.name.common}>${element.name.common}</option>`;
-              });
-              // domaYaz(data)
-          };
-                      
-       ```
-      
-    - Array Methods
+   - Array Methods
       - forEach() &  filter()
 
      ```
-             const showUsers = (users) => {
-              console.log(users);
-              const usersDiv = document.getElementById("users");
-          
-              users.forEach((user) => {
-                  // console.log(user.login)
-                  usersDiv.innerHTML += `
-                   <div class="card col" style="width: 15rem;">
-                      <img src="${user.avatar_url}" class="card-img-top img-thumbnail" alt="...">
-          
-                     <div class="card-body">
-          
-                      <h5 class="card-title">${user.login}</h5>
-                      <p class="card-text">${user.type + ' ' + user.id}</p>
-                      <a href="${user.html_url}" class="btn btn-primary">Go somewhere</a>
-          
-                     </div>
-          
-                 </div>
-              `;
-              });
-          };
+            if (coinNameSpans.length > 0) {//kart yoksa bosuna filter islemi yapmasin diye
+            const filteredArray = [...coinNameSpans].filter(
+                (span) => span.innerText == name
+            );
        ```
 
 
-
-
-   - Nested object destructuring
-     ```
-          const domaYaz = (y) => {
-      const {
-        flags: { png }, //?nested objectlerde destructuring
-        name: { common }, //?nested objectlerde destructuring
-        region,
-        capital,
-        languages,
-        currencies,
-        population,
-        borders,
-        maps: { googleMaps }, //?nested objectlerde destructuring
-    } = y;
-
-    const cardSection = document.getElementById("cards");
-    cardSection.innerHTML = `<div class="card m-auto mt-1" style="width: 25rem;">
-            <img src="${png}" class="card-img-top " style="height:200px" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title fs-2">${common}</h5>
-            </div>
-    ```
-
-  - object methods
-    - Object.values(objectName) 
-    - Object.keys(objectName) 
-    - Object.entries(objectName) 
-     
-      ```
-
-    ${Object.values(languages)}
-    Object.values(currencies)[0].name //?Object.values() metodunun ciktisi array dir
-              }, ${Object.values(currencies)[0].symbol}
-      ```
- 
 
 
 ## Feedback and Collaboration
