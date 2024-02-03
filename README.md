@@ -3,7 +3,7 @@
 **How does my project look**
 
 
-![crypto coin](https://github.com/kaplanh/Crypto-Coin-App/assets/101884444/1a915930-c879-4cce-8eb0-faf656e03bbe)
+![crypto coin app](https://github.com/kaplanh/Crypto-Coin-App/assets/101884444/a0a449c1-d8c0-4566-b5a7-f3f43ae79359)
 
 [Live link!](https://kaplanh.github.io/Crypto-Coin-App/)
 
