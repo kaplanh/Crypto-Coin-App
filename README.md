@@ -11,7 +11,9 @@
  **What's used in this app ?** | **How to run ?** | **Author** |
 |----------|---------|------------
 |Api-Server | Once you clone the project|[Take a look at my portfolio](https://kaplanh.github.io/Portfolio_with_CssFlex/)|
-|Html| open index.html with Go Live in vs cod|[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
+|axios | open index.html with Go Live in vs cod|[Visit me on Linkedin](https://www.linkedin.com/in/kaplan-h/)|
+|postman| |
+|Html| |
 |Css||   
 |Javascript |  |
   
